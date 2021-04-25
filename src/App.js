@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Counter from './Counter';
 
-function App() {
+class App extends React.Component  {
+
+  constructor(){
+    super()
+    this.state = { initialCount: 5}
+  }
+
+  setInitialCount=(value)=>{
+    this.setState({initialCount: value})
+  }
+  
+
+
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter InitialCount={this.state.initialCount} changeInitCount = {this.setInitialCount} />
     </div>
   );
 }
-
+}
 export default App;
